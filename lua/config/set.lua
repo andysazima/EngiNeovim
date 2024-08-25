@@ -11,7 +11,7 @@ set.expandtab = true
 
 set.smartindent = true
 
-set.wrap = false
+set.wrap = true
 
 set.swapfile = false
 set.backup = false
