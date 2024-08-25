@@ -1,8 +1,8 @@
 local augroup = vim.api.nvim_create_augroup
-local au = vim.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
 
-local groupHighlightYank
-au("textYankPost", {
+local groupHighlightYank = augroup("groupHighlightYank", {})
+autocmd({"TextYankPost"}, {
     group = groupHighlightYank,
     pattern = "*",
     callback = function()
@@ -10,5 +10,17 @@ au("textYankPost", {
             higroup = "IncSearch",
             timeout=200,
         })
+    end
+})
+
+local groupRemoveWhiteSpace = augroup("groupRemoveWhiteSpace", {})
+autocmd({"BufWritePre"}, {
+    group = groupRemoveWhiteSpace,
+    pattern = "*",
+    callback = function()
+        local save_cursor = vim.fn.getpos(".")
+        pcall(function() vim.cmd [[%s/\s\+$//e]] end)
+        vim.fn.setpos(".", save_cursor)
     end,
 })
+

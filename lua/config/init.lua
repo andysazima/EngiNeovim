@@ -1,4 +1,5 @@
--- Bootstrap lazy.nvim
+-- THE ORDER HERE MATTERS
+-- 1. Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -15,18 +16,24 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- load keymaps and settings before loading lazy
+-- 2. load keymaps and settings before loading lazy
 require("config.set")
 require("config.keymap")
 
--- Setup lazy.nvim
+-- 3. Setup lazy.nvim
 require("lazy").setup({
   spec = {
     { import = "plugins" },
+    { import = "plugins.colors" }
   },
   install = { colorscheme = { "gruvbox" } },
   checker = { enabled = true },
 })
 
-require("config.colors")
+-- 4. load autocommands after all plugins, sets, keymaps, etc. are loaded
 require("config.autocmd")
+
+-- 5. set initial colorscheme here
+vim.opt.background = "dark"
+vim.cmd([[colorscheme gruvbox]])
+
