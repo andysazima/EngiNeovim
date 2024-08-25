@@ -6,7 +6,7 @@ This is my personal Neovim Config that I use at home. A similar config can be fo
 
 ## Goal
 
-I try to keep things simple and well-organized. I don't want to bloat my nvim with plugins I don't need.
+I try to keep things simple and well-organized. I don't want to bloat my nvim with plugins I don't need. Although, I might not be able to completely stop myself there -- specially with cosmetic plugins...
 
 This nvim setup is my attempt to switch away from VSCode. I was a loyal VSCode user for years, but I found that I just don't use VSCode how it is meant to be used, and I was actually trying to make VSCode act like Vim. So why not switch to the real deal?
 
