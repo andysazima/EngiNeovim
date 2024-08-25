@@ -16,3 +16,9 @@ I use a structured plugin setup that is centered around [lazy.nvim](https://gith
 
 I keep general configuration (including lazy.nvim initialization) in `./lua/config`, and I keep individual plugin configuration in `./lua/plugins`.
 
+## Installation
+
+This is a Neovim config like any other, so all you need to do is:
+
+1. Make a backup of your current nvim config (optional but recommended): `mv ~/.config/nvim ~/.config/nvim.bkp`
+2. Clone this repo into the config folder: `git clone https://github.com/andysazima/sazima-nvim.git ~/.config/nvim`
