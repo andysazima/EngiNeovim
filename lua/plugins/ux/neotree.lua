@@ -11,7 +11,11 @@ return {
         filesystem = {
             hijack_netrw_behavior = "open_default",
             filtered_items = {
-                visible = true
+                visible = true,
+                show_hidden_count = true,
+                hide_dotfiles = false,
+                hide_gitignored = false,
+                hide_by_name = {},
             }
         }
     }

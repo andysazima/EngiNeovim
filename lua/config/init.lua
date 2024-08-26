@@ -23,10 +23,10 @@ require("config.keymap")
 -- 3. Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        { import = "plugins.core" },
-        { import = "plugins.colors" },
         { import = "plugins.ux" },
+        { import = "plugins.lsp" },
         { import = "plugins.lang" },
+        { import = "plugins.colors" },
     },
     install = { colorscheme = { "gruvbox" } },
     checker = { enabled = true },
@@ -38,3 +38,6 @@ require("config.autocmd")
 -- 5. set initial colorscheme here
 vim.opt.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
+
+-- 6. set some other keymaps after lazy loading
+vim.keymap.set("n", "<leader>a", require("lspimport").import, { noremap = true })
