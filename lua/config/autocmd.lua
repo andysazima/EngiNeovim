@@ -1,5 +1,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local set = vim.opt
 
 local groupHighlightYank = augroup("groupHighlightYank", {})
 autocmd({"TextYankPost"}, {
@@ -22,5 +23,21 @@ autocmd({"BufWritePre"}, {
         pcall(function() vim.cmd [[%s/\s\+$//e]] end)
         vim.fn.setpos(".", save_cursor)
     end,
+})
+
+local groupSetSyntax = augroup("groupSetSyntax", {})
+autocmd({"BufNewFile", "BufRead"}, {
+    group = groupSetSyntax,
+    pattern = {"*.tg","*.part","*.lc","*.mtrl","*.key", "trugrdi"},
+    callback = function()
+        set.filetype = "ingrid"
+    end
+})
+autocmd({"BufNewFile", "BufRead"}, {
+    group = groupSetSyntax,
+    pattern = {"*.assembly", "*.subassembly"},
+    callback = function()
+        set.filetype = "diablo"
+    end
 })
 
