@@ -25,6 +25,8 @@ set.list = false
 set.wrapmargin = 0
 set.cursorline = true
 
+set.mouse = "a"
+
 set.ruler = true
 set.fileformats = "unix,dos"
 set.backup = false
@@ -45,4 +47,3 @@ g.vimtex_view_general_options = "--unique file:@pdf#src:@line@tex"
 
 -- Python
 g.python3_host_prog = os.getenv("HOME") .. "/.local/venv/nvim/bin/python3"
-
